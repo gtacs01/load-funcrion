@@ -14,7 +14,7 @@ bool load(const char *dictionary)
     node *new_node;
 
     // CHARACTER ARRAY FOR STORING WORDS READ FROM DICTIONARY. REMEMBER TO FREE LATER
-    char *WORD = malloc(46);
+    char WORD = [LENGTH + 1];
     if (WORD == NULL)
     {
         return false;
@@ -35,15 +35,18 @@ bool load(const char *dictionary)
         new_node->next = NULL;
 
         // Implement hash function
-        hash(new_node->word);
+        unsigned int x =  hash(new_node->word);
 
         // Point new_node's next to starting of link list
-        new_node->next = table[hash(new_node->word)];
+        new_node->next = table[x];
 
         // Point/Insert node to link list
-        table[hash(new_node->word)] = new_node;
+        new_node->next = table[t];
+        table[t] = n;
+
+        a++; //number of words in the dictionary
 
     }
-
+    fclose(file_0);
     return true;
 }
